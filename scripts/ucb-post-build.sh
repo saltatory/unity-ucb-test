@@ -45,14 +45,23 @@ then
   usage
 fi
 
+echo "================================================================================"
+echo "Checking settings"
+echo "================================================================================"
 BUILD_OUTPUT_PATH=${@:1}
 BUILD_PATH=${@:2}
 BUILD_TARGET=${@:3}
+echo BUILD_OUTPUT_PATH=$BUILD_OUTPUT_PATH
+echo BUILD_PATH=$BUILD_PATH
+echo BUILD_TARGET=$BUILD_TARGET
+
+node -v
+npm -v
+npx -v
 
 echo "Uploading to Firebase"
 echo "FIREBASE_APP_ID=$FIREBASE_APP_ID"
 echo "FIREBASE_GROUPS=$FIREBASE_GROUPS"
 echo "BUILD_FILE_NAME=$BUILD_FILE_NAME"
-
 
 cd $BUILD_PATH/.. ; echo $(PWD) ; npx firebase appdistribution:distribute --app "${FIREBASE_APP_ID}" --groups $FIREBASE_GROUPS ${BUILD_PATH}/${BUILD_FILE_NAME}
