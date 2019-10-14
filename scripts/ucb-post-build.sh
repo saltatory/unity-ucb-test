@@ -64,4 +64,4 @@ echo "FIREBASE_APP_ID=$FIREBASE_APP_ID"
 echo "FIREBASE_GROUPS=$FIREBASE_GROUPS"
 echo "BUILD_FILE_NAME=$BUILD_FILE_NAME"
 
-cd $BUILD_PATH/.. ; echo $(pwd) ; npx firebase appdistribution:distribute --app "${FIREBASE_APP_ID}" --groups $FIREBASE_GROUPS ${BUILD_PATH}/${BUILD_FILE_NAME}
+cd $BUILD_PATH/.. ; echo "Executing in $(pwd)" ; npx --package firebase-tools firebase appdistribution:distribute --app "${FIREBASE_APP_ID}" --groups $FIREBASE_GROUPS ${BUILD_PATH}/${BUILD_FILE_NAME}
