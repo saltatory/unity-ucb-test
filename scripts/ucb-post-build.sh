@@ -48,9 +48,9 @@ fi
 echo "================================================================================"
 echo "Checking settings"
 echo "================================================================================"
-BUILD_OUTPUT_PATH=${@[1]}
-BUILD_PATH=${@[2]}
-BUILD_TARGET=${@[3]}
+BUILD_OUTPUT_PATH=${1}
+BUILD_PATH=${2}
+BUILD_TARGET=${3}
 echo BUILD_OUTPUT_PATH=$BUILD_OUTPUT_PATH
 echo BUILD_PATH=$BUILD_PATH
 echo BUILD_TARGET=$BUILD_TARGET
