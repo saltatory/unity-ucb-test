@@ -2,14 +2,8 @@
 
 # TODO
 echo "================================================================================"
-echo "Environment"
+echo "Firebase Uploader for Unity Cloud Build"
 echo "================================================================================"
-set
-
-echo "================================================================================"
-echo "Parameters"
-echo "================================================================================"
-echo ${@}
 
 usage() {
   echo "ucb-post-build.sh [?] [BUILD_PATH]"
@@ -55,13 +49,14 @@ echo BUILD_OUTPUT_PATH=$BUILD_OUTPUT_PATH
 echo BUILD_PATH=$BUILD_PATH
 echo BUILD_TARGET=$BUILD_TARGET
 
-node -v
-npm -v
-npx -v
+echo "Node version: $(npm -v)"
+echo "NPM version $(npm -v)"
+echo "NPX version $(npx -v)"
 
 echo "Uploading to Firebase"
 echo "FIREBASE_APP_ID=$FIREBASE_APP_ID"
 echo "FIREBASE_GROUPS=$FIREBASE_GROUPS"
 echo "BUILD_FILE_NAME=$BUILD_FILE_NAME"
 
-cd $BUILD_PATH/.. ; echo "Executing in $(pwd)" ; npx --package firebase-tools firebase appdistribution:distribute --app "${FIREBASE_APP_ID}" --groups $FIREBASE_GROUPS ${BUILD_PATH}/${BUILD_FILE_NAME}
+# cd $BUILD_PATH/.. ; echo "Executing in $(pwd)" ; npx --package firebase-tools firebase appdistribution:distribute --app "${FIREBASE_APP_ID}" --groups $FIREBASE_GROUPS ${BUILD_PATH}/${BUILD_FILE_NAME}
+npx --package firebase-tools firebase appdistribution:distribute --app "${FIREBASE_APP_ID}" --groups $FIREBASE_GROUPS ${BUILD_PATH}/${BUILD_FILE_NAME}
