@@ -7,6 +7,7 @@ echo "==========================================================================
 
 usage() {
   echo "ucb-post-build.sh [?] [BUILD_PATH]"
+  echo "  [?] these are positional parameters provided by Unity Cloud Build"
   echo "  FIREBASE_TOKEN parameter must be set to the Firebase authorization token. See 'firebase login:ci'."
   echo "  FIREBASE_APP_ID parameter must be set to the Firebase App Id for this build"
   echo "  FIREBASE_GROUPS comma separated list of firebase groups to send build to"
